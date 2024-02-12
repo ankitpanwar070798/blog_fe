@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import ApolloRegistry from '@/lib/apollo-registry'
+import { Suspense } from 'react'
+import LoadingScreen from './_components/LoadingScreen/LoadingScreen'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <body className={inter.className}>
+      <ApolloRegistry>
+        <Suspense fallback={<LoadingScreen/>}>
+          {children}
+        </Suspense>
+      </ApolloRegistry>
+    </body>
+  </html>
   )
 }

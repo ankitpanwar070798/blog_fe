@@ -1,6 +1,6 @@
-import FeaturedPost from "@/components/FeaturedPost/FeaturedPost"
-import HeroSection from "@/components/HeroSection/HeroSection"
-import Tages from "@/components/Tages/Tages"
+import FeaturedPost from "@/app/_components/FeaturedPost/FeaturedPost"
+import HeroSection from "@/app/_components/HeroSection/HeroSection"
+import Tages from "@/app/_components/Tages/Tages"
 
 export default function Home() {
   return (

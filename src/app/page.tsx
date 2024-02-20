@@ -1,9 +1,13 @@
-import Image from 'next/image'
+import FeaturedPost from "@/components/FeaturedPost/FeaturedPost"
+import HeroSection from "@/components/HeroSection/HeroSection"
+import Tages from "@/components/Tages/Tages"
 
 export default function Home() {
   return (
-<>
-<h1>hello world</h1>
-</>
+    <>
+      <HeroSection />
+      <Tages />
+      <FeaturedPost />
+    </>
   )
 }

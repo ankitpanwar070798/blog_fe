@@ -3,6 +3,9 @@ import { Fraunces } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer/Footer"
+import ApolloRegistry from '@/lib/apollo-registry'
+import { Suspense } from 'react'
+import LoadingScreen from './_components/LoadingScreen/LoadingScreen'
 
 const fraunces = Fraunces({ subsets: ["latin"] })
 
@@ -18,10 +21,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fraunces.className} >
+      <body className={fraunces.className}>
+      <ApolloRegistry>
+        <Suspense fallback={<LoadingScreen/>}>
         <Navbar />
         {children}
         <Footer />
+        </Suspense>
+      </ApolloRegistry>
       </body>
     </html>
   )

@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    user: '1000:1000'
+    container_name: CollectionOfBlogs
+
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    networks:
+      - react_docker
+
+networks:
+  react_docker:
+    driver: bridge

@@ -1,12 +1,12 @@
 import Image from "next/image"
 import React from "react"
-import img1 from "../../../public/assets/img1.jpeg"
-import img2 from "../../../public/assets/img2.jpeg"
-import img3 from "../../../public/assets/img3.jpeg"
-import img4 from "../../../public/assets/img4.jpeg"
-import img5 from "../../../public/assets/img5.jpeg"
-import img6 from "../../../public/assets/img6.jpg"
-import img7 from "../../../public/assets/img7.jpg"
+import img1 from "../../../../public/assets/img1.jpeg"
+import img2 from "../../../../public/assets/img2.jpeg"
+import img3 from "../../../../public/assets/img3.jpeg"
+import img4 from "../../../../public/assets/img4.jpeg"
+import img5 from "../../../../public/assets/img5.jpeg"
+import img6 from "../../../../public/assets/img6.jpg"
+import img7 from "../../../../public/assets/img7.jpg"
 import Link from "next/link"
 
 const Tages = () => {
@@ -47,17 +47,32 @@ const Tages = () => {
       img: img7,
     },
   ]
+
+  const hideScrollbarStyle: React.CSSProperties = {
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+    WebkitOverflowScrolling: "auto",
+    // "&::-webkit-scrollbar": {
+    //   display: "none",
+    // }
+  }
+
   return (
     <div className="max-w-[1360px] mx-auto mt-8 mb-10 px-8">
-      <small className="text-xl uppercase">Popular tags</small>
-      <div className="flex gap-6 overflow-x-scroll overflow-y-hidden">
+      <small className="text-lg text-[#42C690] font-bold uppercase">
+        Popular tags
+      </small>
+      <div
+        className="flex gap-6 overflow-x-scroll hide-scrollbar"
+        style={hideScrollbarStyle}
+      >
         {data.map((tag) => (
           <Link
             key={tag.id}
             href={`/tag/${tag.name.toLowerCase()}/`}
             className="relative py-4 hover:-translate-y-2 transition-transform duration-300 ease-in-out"
           >
-            <h2 className="absolute bottom-6 left-2 bg-white px-3 py-1 rounded-[100px] text-xs">
+            <h2 className="absolute bottom-6 left-2 bg-white px-3 py-1 rounded-[100px] text-xs font-bold">
               {tag.name}
             </h2>
             <div className="w-[200px]  h-[110px]">

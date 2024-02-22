@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Fraunces } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/app/_components/Navbar/Navbar"
-import Footer from "@/_components/Footer/Footer"
+import Footer from "@/app/_components/Footer/Footer"
 import ApolloRegistry from '@/lib/apollo-registry'
 import { Suspense } from 'react'
 import LoadingScreen from './_components/LoadingScreen/LoadingScreen'
